@@ -6,13 +6,13 @@
 /*   By: ikovalen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 14:17:30 by ikovalen          #+#    #+#             */
-/*   Updated: 2019/05/27 14:32:10 by ikovalen         ###   ########.fr       */
+/*   Updated: 2019/06/03 16:04:27 by ikovalen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int				ft_tablen(void **tab)
+int		ft_tablen(void **tab)
 {
 	int			i;
 
@@ -22,7 +22,7 @@ int				ft_tablen(void **tab)
 	return (i);
 }
 
-void		**ft_arradd(void ***tab, void **array)
+void	**ft_arradd(void ***tab, void **array)
 {
 	int		i;
 	int		j;

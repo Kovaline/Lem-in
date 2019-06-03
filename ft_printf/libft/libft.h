@@ -6,7 +6,7 @@
 /*   By: ikovalen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/25 12:24:50 by ikovalen          #+#    #+#             */
-/*   Updated: 2019/01/21 17:02:19 by ikovalen         ###   ########.fr       */
+/*   Updated: 2019/06/03 16:02:33 by ikovalen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,6 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 int					ft_iswhitespace(char c);
-void                **ft_newintarr(int y, int x, char bits);
-void                **ft_arradd(void ***tab, void **array);
+void				**ft_newintarr(int y, int x, char bits);
+void				**ft_arradd(void ***tab, void **array);
 #endif

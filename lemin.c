@@ -12,6 +12,8 @@
 
 #include "lemin.h"
 
+t_list	*g_info;
+
 int		findroom(char *name, t_lem *lemin)
 {
 	int i;
@@ -27,7 +29,7 @@ int		findroom(char *name, t_lem *lemin)
 	exit(ft_printf("ERROR: Wrong room\n"));
 }
 
-void	init(t_lem *lemin)
+void	init(t_lem *lemin, int argc)
 {
 	lemin->comments = 0;
 	lemin->startend = 0;
@@ -41,14 +43,37 @@ void	init(t_lem *lemin)
 	lemin->index2 = 0;
 	lemin->index3 = 0;
 	lemin->start = 0;
+	lemin->argc = argc;
 	lemin->end = 0;
-	lemin->lines = 0;
+	lemin->lines = 1;
+	lemin->prcount = 0;
+	lemin->nomap = 0;
+	lemin->leaks = 0;
+	lemin->lin = 0;
+	lemin->count2 = 0;
+	lemin->printpaths = 0;
 }
 
-int		main(void)
+int		get_next_line_save(int fd, char **line)
 {
-	MAINIT;
-	while (get_next_line(0, &line) > 0 && ++lemin.comments)
+	t_list	*tmp;
+	int		result;
+
+	if ((result = get_next_line(fd, line)))
+	{
+		ft_lstadd(&g_info, (tmp = ft_lstnew(NULL, 0)));
+		tmp->content = *line;
+	}
+	return (result);
+}
+
+int		main(int argc, char **argv)
+{
+	char	*line;
+	t_lem	lemin;
+
+	init(&lemin, argc);
+	while (get_next_line_save(0, &line) > 0 && ++lemin.comments)
 	{
 		if (line[0] == '#')
 			checksharp(line, &lemin);
@@ -66,9 +91,5 @@ int		main(void)
 		exit(ft_printf("ERROR: No start/end/rooms/links!\n"));
 	if (lemin.paths == NULL)
 		exit(ft_printf("ERROR: No solution\n"));
-	else
-	{
-		print_result(&lemin);
-		ft_printf(GREEN"Number of lines: %i\n"EOM, lemin.lines);
-	}
+	printing(&lemin, argv);
 }

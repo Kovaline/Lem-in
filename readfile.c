@@ -27,7 +27,6 @@ void	addlink(char *line, t_lem *lemin)
 	lemin->links[i][*lemin->links[i]] = j + 1;
 	++*lemin->links[j];
 	lemin->links[j][*lemin->links[j]] = i + 1;
-	free(line);
 	i = 0;
 	while (str[i])
 		free(str[i++]);
@@ -56,7 +55,6 @@ void	addrooms(char *line, t_lem *lemin)
 	if (str[0][0] == 'L' || str[0][0] == '#')
 		exit(ft_printf("ERROR: Rooms cant be named with L or #\n"));
 	lemin->rooms[lemin->counter++] = ft_strdup(str[0]);
-	free(line);
 	i = 0;
 	while (str[i])
 		free(str[i++]);
@@ -76,7 +74,6 @@ void	antsnum(char *line, t_lem *lemin)
 	if (lemin->ants < 1)
 		exit(ft_printf("ERROR: Negative number of ants\n"));
 	lemin->checker = 1;
-	free(line);
 }
 
 void	checksharp(char *line, t_lem *lemin)
@@ -84,16 +81,13 @@ void	checksharp(char *line, t_lem *lemin)
 	if (ft_strcmp(line, "##start") == 0)
 	{
 		lemin->start = lemin->comments - ++lemin->startend;
-		free(line);
 	}
 	else if (ft_strcmp(line, "##end") == 0)
 	{
 		lemin->end = lemin->comments - ++lemin->startend;
-		free(line);
 	}
 	else
 	{
 		lemin->comments--;
-		free(line);
 	}
 }

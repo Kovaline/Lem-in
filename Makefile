@@ -6,14 +6,14 @@
 #    By: ikovalen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/31 15:28:12 by ikovalen          #+#    #+#              #
-#    Updated: 2019/05/31 15:30:12 by ikovalen         ###   ########.fr        #
+#    Updated: 2019/06/03 14:59:05 by ikovalen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = lem-in
 FLAGS = -c -Wall -Wextra -Werror
 OBJ = *.o
-SRC = lemin.c algo.c print.c readfile.c
+SRC = lemin.c algo.c print.c readfile.c funcs.c
 
 all: $(NAME)
 
